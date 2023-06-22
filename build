@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+
+if [ "${1:-}" == "-h" ]; then
+    declare usage="./build [ image_name ] "
+    echo "${usage}"
+    exit
+fi
+
+declare -r image_name="${1:-codelab}"
+
+docker build -t "${image_name}" .

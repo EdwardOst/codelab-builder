@@ -1,4 +1,4 @@
-FROM claat as ClaatExporter
+FROM ubuntu as ClaatExporter
 
 # get the claat binaries
 RUN apt-get update \

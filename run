@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+
+if [ "${1:-}" == "-h" ]; then
+    declare usage="./run [ container_name ] "
+    echo "${usage}"
+    exit
+fi
+
+declare -r container_name="${1:-codelab}"
+declare -r image_name="${2:-codelab}"
+
+docker run --name "${container_name}" -p 80:80/tcp "${image_name}"
